@@ -1,5 +1,4 @@
 import procuremate from "./images/procurementmate.gif";
-import greenFern from "./images/green-fern.png";
 import codesearch from "./images/codesearch.png";
 import stepwise from "./images/stepwise.png";
 import earlyWarning from "./images/early-warning.png";
@@ -79,5 +78,4 @@ export const mosaicTiles = [
   stepwise,
   procuremate,
   codesearch,
-  greenFern,
 ];
