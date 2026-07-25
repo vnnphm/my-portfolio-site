@@ -1,6 +1,7 @@
 import logoMark from "../images/signature.svg";
 import iconMoon from "../images/icon-moon.svg";
 import iconSun from "../images/icon-sun-a.svg";
+import { resume } from "../content";
 
 export default function Nav({
   dark,
@@ -31,6 +32,18 @@ export default function Nav({
         </a>
         <a href="#contact" className={linkClass}>
           Contact
+        </a>
+        <a
+          href={resume}
+          target="_blank"
+          rel="noreferrer"
+          className={`cursor-pointer rounded-full border px-4 py-1.5 transition-colors ${
+            dark
+              ? "border-white/25 text-white hover:bg-white/10"
+              : "border-black/20 text-[#181717] hover:bg-black/5"
+          }`}
+        >
+          Resume
         </a>
         <button
           onClick={onToggleTheme}

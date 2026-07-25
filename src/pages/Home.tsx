@@ -1,9 +1,10 @@
 import Decor from "../components/Decor";
 import ArrowLink from "../components/ArrowLink";
-import { projects, stack, email, socials } from "../content";
+import { projects, stack, email, socials, resume } from "../content";
 
 export default function Home({ dark }: { dark: boolean }) {
   const github = socials.find((s) => s.k === "GitHub");
+  const linkedin = socials.find((s) => s.k === "LinkedIn");
   const border = dark ? "border-white/10" : "border-black/10";
   const muted = dark ? "text-white/60" : "text-black/60";
 
@@ -20,7 +21,7 @@ export default function Home({ dark }: { dark: boolean }) {
           I'm Vinny Pham
         </h1>
 
-        <p className="mt-16 max-w-md text-2xl font-medium sm:mt-24 sm:text-3xl">
+        <p id="about" className="mt-16 max-w-md scroll-mt-24 text-2xl font-medium sm:mt-24 sm:text-3xl">
           Full Stack Software Developer, Tea Enjoyer
         </p>
         <div className="mt-14 flex flex-col gap-5">
@@ -61,34 +62,48 @@ export default function Home({ dark }: { dark: boolean }) {
       <section id="work" className="mt-28 scroll-mt-24">
         <h2 className="mb-8 text-2xl font-medium sm:text-3xl">Work</h2>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <div key={p.slug} className="text-left">
-              <div className="aspect-352/204 w-full overflow-hidden rounded-t-lg">
-                <img
-                  src={p.thumb}
-                  alt={p.name}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className={`flex items-center justify-between border-t px-1 py-2.5 text-[15px] ${border}`}>
-                <span className="font-medium">{p.name}</span>
-                <span className={dark ? "text-white/50" : "text-black/50"}>{p.year}</span>
-              </div>
-              <p className={`mt-1 px-1 text-sm ${muted}`}>{p.note}</p>
-              <div className="mt-2 flex flex-wrap gap-1.5 px-1">
-                {p.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={`rounded-full border px-2 py-0.5 text-xs ${
-                      dark ? "border-white/15 text-white/60" : "border-black/15 text-black/60"
+          {projects.map((p) => {
+            const link: React.ComponentProps<"a"> = p.repo
+              ? { href: p.repo, target: "_blank", rel: "noreferrer" }
+              : {};
+
+            return (
+              <div key={p.slug} className="text-left">
+                <a
+                  {...link}
+                  aria-label={p.repo ? `${p.name} on GitHub` : undefined}
+                  className="block aspect-352/204 w-full overflow-hidden rounded-t-lg"
+                >
+                  <img
+                    src={p.thumb}
+                    alt={p.name}
+                    className={`h-full w-full object-cover transition-transform duration-300 ${
+                      p.repo ? "hover:scale-105" : ""
                     }`}
-                  >
-                    {tag}
-                  </span>
-                ))}
+                  />
+                </a>
+                <div className={`flex items-center justify-between border-t px-1 py-2.5 text-[15px] ${border}`}>
+                  <a {...link} className={`font-medium ${p.repo ? "hover:underline" : ""}`}>
+                    {p.name}
+                  </a>
+                  <span className={dark ? "text-white/50" : "text-black/50"}>{p.year}</span>
+                </div>
+                <p className={`mt-1 px-1 text-sm ${muted}`}>{p.note}</p>
+                <div className="mt-2 flex flex-wrap gap-1.5 px-1">
+                  {p.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className={`rounded-full border px-2 py-0.5 text-xs ${
+                        dark ? "border-white/15 text-white/60" : "border-black/15 text-black/60"
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -111,6 +126,20 @@ export default function Home({ dark }: { dark: boolean }) {
               <span className={dark ? "text-white/70" : "text-black/70"}>{github.v}</span>
             </div>
           )}
+          {linkedin && (
+            <div className="flex flex-wrap items-baseline gap-2">
+              <ArrowLink href={linkedin.href} dark={dark}>
+                Connect on {linkedin.k}
+              </ArrowLink>
+              <span className={dark ? "text-white/70" : "text-black/70"}>{linkedin.v}</span>
+            </div>
+          )}
+          <div className="flex flex-wrap items-baseline gap-2">
+            <ArrowLink href={resume} dark={dark} newTab>
+              View my resume
+            </ArrowLink>
+            <span className={dark ? "text-white/70" : "text-black/70"}>PDF</span>
+          </div>
         </div>
 
         <p className={`mt-8 max-w-md ${dark ? "text-white/50" : "text-black/50"}`}>

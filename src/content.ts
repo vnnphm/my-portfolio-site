@@ -10,6 +10,7 @@ export type Project = {
   note: string;
   tags: string[];
   thumb: string;
+  repo?: string;
 };
 
 export const projects: Project[] = [
@@ -20,6 +21,7 @@ export const projects: Project[] = [
     note: "natural language to remember your code. has github oauth! (collaborated w quang vu)",
     tags: ["TypeScript", "React", "Next.js", "Neon", "OpenAI Embedding"],
     thumb: codesearch,
+    repo: "https://github.com/qvu50015/Search",
   },
   {
     slug: "procure-mate",
@@ -28,6 +30,7 @@ export const projects: Project[] = [
     note: "b2b saas inspired procurement assistant",
     tags: ["TypeScript", "React", "Vite", "Python", "FastAPI", "Docker"],
     thumb: procuremate,
+    repo: "https://github.com/vnnphm/ProcureMate",
   },
   {
     slug: "conflict-early-watch-warning",
@@ -36,6 +39,7 @@ export const projects: Project[] = [
     note: "informative map that labels high risk war zones and pulls latest articles",
     tags: ["React", "JavaScript", "FastAPI"],
     thumb: earlyWarning,
+    repo: "https://github.com/vnnphm/Conflict-Watch-Early-Warning",
   },
   {
     slug: "stepwise",
@@ -44,6 +48,7 @@ export const projects: Project[] = [
     note: "turns plain language goals into an interactive step-by-step graph",
     tags: ["React", "TypeScript", "React Flow", "Express"],
     thumb: stepwise,
+    repo: "https://github.com/vnnphm/Stepwise",
   },
 ];
 
@@ -68,10 +73,13 @@ export type SocialLink = {
 
 export const socials: SocialLink[] = [
   { k: "GitHub", v: "@vnnphm", href: "https://github.com/vnnphm" },
-  { k: "X", v: "@vinnypham", href: "#" },
+  { k: "LinkedIn", v: "Vinny Pham", href: "https://www.linkedin.com/in/vinny-pham-43b43928b" },
 ];
 
 export const email = "vinnypham11@gmail.com";
+
+// Served straight from public/, so the URL stays stable across builds.
+export const resume = "/vinny_pham_resume_jul2026.pdf";
 
 export const mosaicTiles = [
   earlyWarning,
