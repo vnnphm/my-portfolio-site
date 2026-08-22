@@ -15,6 +15,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "cache-proof",
+    year: "'26 at Snowflake X Beta Uni Hackathon",
+    name: "CacheProof",
+    note: "CacheProof is an AST-aware semantic cache for read-only repository tools used by cloud coding agents. It hard-scopes every cache lookup by tenant, repository, commit, permission hash, tool, and tool schema; enriches responses with AST provenance; and records the complete cost of retrieval, embedding, judging, indexing, and infrastructure.",
+    tags: ["Python", "Supabase", "MCP Tools", "OpenAI Embedding"],
+    thumb: "cacheproof",
+    repo: "https://github.com/vnnphm/cacheproof",
+  },
+  {
     slug: "code-search",
     year: "'26",
     name: "Code Search",
