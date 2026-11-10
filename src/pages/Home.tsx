@@ -26,7 +26,7 @@ export default function Home({ dark }: { dark: boolean }) {
         </p>
         <div className="mt-14 flex flex-col gap-5">
           {stack.map((group) => (
-            <div key={group.label} className="grid grid-cols-[6rem_1fr] items-start gap-4">
+            <div key={group.label} className="grid grid-cols-[8.5rem_1fr] items-start gap-4">
               <span className={dark ? "text-white/50" : "text-black/50"}>{group.label}</span>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (

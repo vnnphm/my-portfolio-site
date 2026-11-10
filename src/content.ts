@@ -93,11 +93,29 @@ export type StackGroup = {
 };
 
 export const stack: StackGroup[] = [
-  { label: "Languages", items: ["TypeScript", "JavaScript", "Python", "C++", "Java"] },
-  { label: "Frontend", items: ["Tailwind CSS", "CSS", "HTML", "React"] },
-  { label: "Backend", items: ["Node.js", "Postgres", "Supabase", "Neon", "Docker", "FastAPI"] },
-  { label: "Frameworks", items: ["Vite", "TanStack Start", "Next.js"] },
-  { label: "Tools", items: ["Figma", "Git", "Vercel", "Docker", "Claude Code", "Codex"] },
+  { label: "Languages", items: ["C++", "Java", "JavaScript", "TypeScript", "Python", "HTML/CSS"] },
+  { label: "Frontend", items: ["React", "Next.js", "TanStack Start", "Tailwind CSS"] },
+  { label: "Backend", items: ["Node.js", "Express.js", "FastAPI", "PostgreSQL", "Prisma"] },
+  {
+    label: "Infrastructure",
+    items: ["Docker", "AWS ECS", "Fargate", "ECR", "SQS", "IAM", "VPC", "CloudWatch", "GitHub Actions"],
+  },
+  {
+    label: "Developer Tools",
+    items: [
+      "Git",
+      "GitHub",
+      "AWS SDK",
+      "Supabase",
+      "Neon",
+      "pgvector",
+      "Claude Code",
+      "Codex",
+      "WebStorm",
+      "PyCharm",
+      "Visual Studio Code",
+    ],
+  },
 ];
 
 export type SocialLink = {
@@ -114,7 +132,7 @@ export const socials: SocialLink[] = [
 export const email = "vinnypham11@gmail.com";
 
 // Served straight from public/, so the URL stays stable across builds.
-export const resume = "/vinny_pham_resume_jul2026.pdf";
+export const resume = "/vinny_pham_resume_nov2026.pdf";
 
 export const mosaicTiles = [
   earlyWarning,
