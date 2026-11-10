@@ -2,6 +2,9 @@ import procuremate from "./images/procurementmate.gif";
 import codesearch from "./images/codesearch.png";
 import stepwise from "./images/stepwise.png";
 import earlyWarning from "./images/early-warning.png";
+import refundhunter from "./images/refundhunter.jpg";
+import cacheproof from "./images/cacheproof.png";
+import flypick from "./images/flypick.png";
 
 export type Project = {
   slug: string;
@@ -11,6 +14,8 @@ export type Project = {
   tags: string[];
   thumb: string;
   repo?: string;
+  award?: string;
+  devpost?: string;
 };
 
 export const projects: Project[] = [
@@ -20,8 +25,29 @@ export const projects: Project[] = [
     name: "CacheProof",
     note: "CacheProof is an AST-aware semantic cache for read-only repository tools used by cloud coding agents. It hard-scopes every cache lookup by tenant, repository, commit, permission hash, tool, and tool schema; enriches responses with AST provenance; and records the complete cost of retrieval, embedding, judging, indexing, and infrastructure. Built at Beta University x Snowflake Hackathon",
     tags: ["Python", "Supabase", "MCP Tools", "OpenAI Embedding"],
-    thumb: "cacheproof",
+    thumb: cacheproof,
     repo: "https://github.com/vnnphm/cacheproof",
+  },
+  {
+    slug: "flypick",
+    year: "'26",
+    name: "FlyPick",
+    note: "can't decide where to eat? let a fly choose. FlyPick scrapes restaurant menus with Firecrawl, turns them into sensory signals for a simulated neural network based on real fruit fly brain wiring, and you watch a 3D fly steer toward its pick. Built at Shower Hacks (collaborated w allen le)",
+    tags: ["TypeScript", "React", "Three.js", "Vite", "Firecrawl"],
+    thumb: flypick,
+    repo: "https://github.com/vnnphm/flypick",
+    devpost: "https://devpost.com/software/flypick",
+  },
+  {
+    slug: "refund-hunter",
+    year: "'26",
+    name: "RefundHunter",
+    note: "tracks the prices of things you've already bought and tells you when you're owed money back, right inside an ASI:One chat. five Fetch.ai uAgents parse receipts and Gmail orders, check live prices, look up price-adjustment policies, and draft the refund request. Built at Cal Hacks 13.0",
+    tags: ["Python", "Fetch.ai uAgents", "Agentverse", "ASI:One", "Bright Data", "Gmail API", "FastAPI"],
+    thumb: refundhunter,
+    repo: "https://github.com/vnnphm/RefundHunter",
+    devpost: "https://devpost.com/software/refundhunter-hs1u63",
+    award: "[Fetch.ai] Best Use of ASI:One · Cal Hacks 13.0",
   },
   {
     slug: "code-search",

@@ -86,8 +86,33 @@ export default function Home({ dark }: { dark: boolean }) {
                   <a {...link} className={`font-medium ${p.repo ? "hover:underline" : ""}`}>
                     {p.name}
                   </a>
-                  <span className={dark ? "text-white/50" : "text-black/50"}>{p.year}</span>
+                  <div className={`flex items-center gap-3 ${dark ? "text-white/50" : "text-black/50"}`}>
+                    {p.devpost && (
+                      <a
+                        href={p.devpost}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`underline-offset-2 hover:underline ${dark ? "hover:text-white" : "hover:text-black"}`}
+                      >
+                        Devpost ↗
+                      </a>
+                    )}
+                    <span>{p.year}</span>
+                  </div>
                 </div>
+                {p.award && (
+                  <div className="mt-1 px-1">
+                    <span
+                      className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-medium ${
+                        dark
+                          ? "border-amber-300/30 bg-amber-300/10 text-amber-200"
+                          : "border-amber-600/30 bg-amber-100 text-amber-800"
+                      }`}
+                    >
+                      🏆 {p.award}
+                    </span>
+                  </div>
+                )}
                 <p className={`mt-1 px-1 text-sm ${muted}`}>{p.note}</p>
                 <div className="mt-2 flex flex-wrap gap-1.5 px-1">
                   {p.tags.map((tag) => (
